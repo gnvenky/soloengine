@@ -1,4 +1,26 @@
 
+bash-3.2$ ./slotted_engine 
+==== Slotted Page Demo ====
+
+--- Example 1: Insert and Read ---
+Inserted: Record_0
+Inserted: Record_1
+Inserted: Record_2
+Inserted: Record_3
+Inserted: Record_4
+
+Reading records:
+Read: Record_0
+Read: Record_1
+Read: Record_2
+Read: Record_3
+Read: Record_4
+
+--- Example 2: Fill Page Until Full ---
+Inserted 376 additional records before page filled.
+
+==== Demo Complete ====
+Now read more..
 The core of this mini engine is the **slotted page**, implemented in `Page.h`/`Page.cpp`. 
 A slotted page is a fixed-size block of memory (here, 4KB) that stores multiple records. 
 Each record is placed at the “end” of the free space, and the page maintains a **slot directory 
