@@ -30,7 +30,3 @@ and the main function demonstrates usage. This separation makes it easy to incre
 you could add disk persistence via a `DiskManager`, introduce an LRU buffer pool, implement MVCC and transaction support, 
 or even switch to a hybrid columnar layout for analytic workloads compatible with engines like Trino. 
 The minimal code is small enough to understand but structured so that each component can evolve into a production-style database engine.
-
----
-
-If you want, I can also **draw a simple diagram showing how the slotted page, block pool, and table interact**, which helps visualize the engine in one view. Do you want me to do that?
