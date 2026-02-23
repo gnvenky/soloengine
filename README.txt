@@ -7,7 +7,8 @@ read, and later delete or update records without moving all other data.
 
 In the minimal implementation, `insert()` checks if there is enough free space, copies the record into the page, 
 updates the slot directory, and increases the free space pointer. The `read()` function uses the slot directory to 
-locate a record by its slot ID and return the data. This layout mirrors what production databases like PostgreSQL use for row storage.
+locate a record by its slot ID and return the data. This layout mirrors what production databases like PostgreSQL 
+use for row storage.
 
 On top of the slotted page, the block pool (`BlockPool.h`/`BlockPool.cpp`) manages multiple pages in memory. 
 It is essentially an in-memory array of pages that simulates a small buffer manager. The block pool allows you 
@@ -29,7 +30,6 @@ page layout, slot tracking, and free space calculation in a simple, observable w
 Overall, this minimal design is intentionally layered and modular. 
 The slotted page handles individual page storage, the block pool handles page management in memory, 
 and the main function demonstrates usage. This separation makes it easy to incrementally add more advanced features: 
-you could add disk persistence via a `DiskManager`, 
-introduce an LRU buffer pool, implement MVCC and transaction support, 
+you could add disk persistence via a `DiskManager`,  introduce an LRU buffer pool, implement MVCC and transaction support, 
 or even switch to a hybrid columnar layout for analytic workloads compatible with engines like Trino. 
 The minimal code is small enough to understand but structured so that each component can evolve into a production-style database engine.
